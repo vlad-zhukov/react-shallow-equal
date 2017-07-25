@@ -1,0 +1,60 @@
+{
+  "name": "react-shallow-equal",
+  "version": "0.1.0",
+  "description": "Efficient shallow equality algorithm for React and React Native",
+  "author": "Vlad Zhukov (http://github.com/Vlad-Zhukov)",
+  "license": "MIT",
+  "repository": "Vlad-Zhukov/react-shallow-equal",
+  "bugs": {
+    "url": "https://github.com/Vlad-Zhukov/react-shallow-equal/issues"
+  },
+  "main": "./dist/react-shallow-equal.cjs.js",
+  "module": "./dist/react-shallow-equal.esm.js",
+  "jsnext:main": "./dist/react-shallow-equal.esm.js",
+  "scripts": {
+    "build": "rimraf dist/ && cross-env NODE_ENV=production rollup -c",
+    "test": "jest",
+    "lint": "eslint \"**/*.js\"",
+    "prettier": "prettier-eslint \"**/*.js\" --write",
+    "prepublishOnly": "yarn run lint && yarn run build && yarn run test"
+  },
+  "dependencies": {
+    "style-equal": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.0",
+    "eslint-plugin-react": "^7.1.0",
+    "jest": "^20.0.4",
+    "prettier-eslint-cli": "^4.1.1",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "shallowequal",
+    "shallow-equal",
+    "shallowCompare",
+    "shallow-compare",
+    "equals",
+    "shouldComponentUpdate"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "jest": {
+    "roots": [
+      "<rootDir>/__tests__/"
+    ]
+  }
+}
