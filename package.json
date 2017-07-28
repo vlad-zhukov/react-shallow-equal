@@ -1,6 +1,6 @@
 {
   "name": "react-shallow-equal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Efficient shallow equality algorithm for React and React Native",
   "author": "Vlad Zhukov (http://github.com/Vlad-Zhukov)",
   "license": "MIT",
