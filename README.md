@@ -10,9 +10,9 @@ This is a fork of [lelandrichardson/shallow-element-equals](https://github.com/l
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
-  - [`propsEqual`](#propsequalaboptions)
-  - [`elementsEqual`](#elementsequalab)
-  - [`stylesEqual`](#stylesequalab)
+  - [`propsEqual`](#propsequala-b-options)
+  - [`elementsEqual`](#elementsequala-b)
+  - [`stylesEqual`](#stylesequala-b)
 
 ## Install
 

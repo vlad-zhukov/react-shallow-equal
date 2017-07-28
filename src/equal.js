@@ -23,36 +23,35 @@ export function elementsEqual(a, b) {
     }
 }
 
-export function propsEqual(a, b, options = {ignore: []}) {
+export function propsEqual(a, b, options = {}) {
     const aKeys = Object.keys(a);
     let aCount = 0;
     let bCount = 0;
 
-    for (let key = 0, l = aKeys.length; key < l; key++) {
-        if (options.ignore.indexOf(key) === -1) {
-            if (key === 'style') {
-                // NOTE: kind of risky, but i'm assuming that a `style` prop is a React Native style,
-                // and using the `styleEqual` algorithm here.
-                if (!stylesEqual(a[key], b[key])) return false;
-            }
-            else if (key === 'children') {
-                // will compare children later
-            }
-            else if (a[key] !== b[key]) return false;
+    for (let i = 0, l = aKeys.length; i < l; i++) {
+        const key = aKeys[i];
+        if (!options.ignore || options.ignore.indexOf(key) === -1) {
+            // Compare `style` and `children` props later
+            if (key !== 'style' && key !== 'children' && a[key] !== b[key]) return false;
             aCount += 1;
         }
     }
 
     const bKeys = Object.keys(b);
 
-    for (let key = 0, l = bKeys.length; key < l; key++) {
-        if (options.ignore.indexOf(key) === -1) {
+    for (let i = 0, l = bKeys.length; i < l; i++) {
+        const key = bKeys[i];
+        if (!options.ignore || options.ignore.indexOf(key) === -1) {
             bCount += 1;
         }
     }
 
     if (aCount !== bCount) return false;
 
-    // compare children last...
+    // NOTE: Kind of risky, but I'm assuming that a `style` prop is a React Native style,
+    // and using the `styleEqual` algorithm here.
+    if (!stylesEqual(a.style, b.style)) return false;
+
+    // Compare children last
     return elementsEqual(a.children, b.children);
 }
